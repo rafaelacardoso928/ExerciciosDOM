@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Praticando Eventos e Formulários</title>
+  <style>
+    #quadrado {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      margin-top: 10px;
+    }
+
+    #erro-email {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Contador de cliques -->
+  <button id="btnContar">Contar Cliques</button>
+  <h3 id="contador">Contador: 0</h3>
+
+  <hr>
+
+  <!-- 2. Mudando estilo com mouse -->
+  <div id="quadrado"></div>
+
+  <hr>
+
+  <!-- 3. Formulário inteligente -->
+  <form id="formulario">
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email"><br><br>
+
+    <button type="submit">Enviar</button>
+    <p id="erro-email"></p>
+  </form>
+
+  <script>
+
+    const btnContar = document.getElementById("btnContar");
+    const contador = document.getElementById("contador");
+    let cliques = 0;
+
+    btnContar.addEventListener("click", function() {
+      cliques++;
+      contador.textContent = `Contador: ${cliques}`;
+    });
+
+   
+    const quadrado = document.getElementById("quadrado");
+
+    quadrado.addEventListener("mouseover", function() {
+      quadrado.style.backgroundColor = "red";
+    });
+
+    quadrado.addEventListener("mouseout", function() {
+      quadrado.style.backgroundColor = "lightblue";
+    });
+
+   
+    const formulario = document.getElementById("formulario");
+    const emailInput = document.getElementById("email");
+    const erroEmail = document.getElementById("erro-email");
+
+    formulario.addEventListener("submit", function(event) {
+      erroEmail.textContent = ""; 
+      if (emailInput.value.trim() === "") {
+        event.preventDefault();
+        erroEmail.textContent = "Por favor, preencha o campo de email.";
+      }
+    });
+  </script>
+
+</body>
+</html>
