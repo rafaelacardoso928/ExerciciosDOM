@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Manipulação de Elementos</title>
+  <style>
+    #paragrafo {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Mude o texto de um botão -->
+  <button id="botaoTexto">Clique aqui</button>
+
+  <!-- 2. Mude o conteúdo HTML de um elemento -->
+  <div id="caixa">Conteúdo original</div>
+  <button id="botaoHtml">Trocar conteúdo</button>
+
+  <!-- 3. Modifique múltiplos estilos de um elemento -->
+  <p id="paragrafo">Texto a ser estilizado</p>
+
+  <script>
+    
+    const botaoTexto = document.getElementById("botaoTexto");
+    botaoTexto.addEventListener("click", function() {
+      botaoTexto.textContent = "Clicado!";
+    });
+
+    
+    const botaoHtml = document.getElementById("botaoHtml");
+    const caixa = document.getElementById("caixa");
+    botaoHtml.addEventListener("click", function() {
+      caixa.innerHTML = "<strong>Conteúdo em negrito</strong>";
+    });
+
+    
+    const paragrafo = document.getElementById("paragrafo");
+    paragrafo.style.color = "green";
+    paragrafo.style.fontSize = "20px";
+    paragrafo.style.backgroundColor = "yellow";
+  </script>
+
+</body>
+</html>
